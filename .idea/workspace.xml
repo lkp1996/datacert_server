@@ -2,158 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="988f5d07-0611-4861-9044-f9b9ae71f7a2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wrks/wrk_report.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wrks/wrk_userType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/auditobservation/2/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/auditobservation/53/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/auditobservation/55/My AngularJS App.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/auditobservation/55/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/2/MATU.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/43/Formulaire armée - Luke Perrottet.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/44/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/45/python_thymio_api.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/46/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/47/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/48/Photo 07-04-15 10 40 57.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/49/Formulaire armée - Luke Perrottet.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/50/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/51/billet_damso_estival2017.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/52/24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/52/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/53/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/53/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/55/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/57/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/58/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/60/ContratMembreSAC_lukeperrottet.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/criminalrecord/64/FormulairesEtTables.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/2/CFC.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/2/cv_tartampion.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/2/edelcert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/42/Projet HRM.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/43/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/44/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/45/Documentation_installation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/46/1617 TINF - 02 Fenêtre danticipation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/47/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/48/hrm_edelcert.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/49/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/50/billets_barça.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/51/Formulaire armée - Luke Perrottet.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/52/28.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/52/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/53/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/53/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/55/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/57/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/58/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/59/FormulairesEtTables.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/59/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/cv/61/s03.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/19/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/19/voi-serie1-data-ex8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/2/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/2/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/2/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/52/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/52/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/52/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/52/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/53/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/53/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/55/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/55/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/formation/64/qcm.rat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/2/30.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/2/Capture d’écran 2018-02-01 à 16.05.00.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/2/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/2/rapport-24 - copie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/53/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/53/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/53/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/53/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/54/rev_te1(1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/54/rev_te1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/54/s07.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/!gedreports.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/23.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/25.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/My AngularJS App.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/bigsmoke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/55/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/57/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/57/heures_hrm.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/57/hrm_edelcert.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/57/rapport-24 - copie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/18.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/4.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/5.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/6.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/7.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/60/9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/internalqualification/63/21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/2/Projet HRM.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/2/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/2/qcm.rat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/2/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/53/s06.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/mandatesheet/55/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/19/stephaneperrottet.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/2/jules_tartampion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/43/Photo 07-04-15 10 40 57.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/45/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/46/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/47/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/48/Photo 07-04-15 10 40 57.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/49/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/50/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/51/allan-300x300.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/52/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/53/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/55/bigsmoke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/57/bigsmoke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/58/bigsmoke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/59/Capture d’écran 2018-02-01 à 16.05.00.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/60/portrait.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/picture/69/edelcert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/1/21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/2/bryan_cranston_0095.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/2/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/2/hrm_edelcert.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/2/putin.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/2/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/53/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/53/todo_hrm_edelcert.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/55/deplacement_de_cr.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/55/modification HRM 2.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/attachements/professionnalexperience/55/putin.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ctrl/ctrl.php" beforeDir="false" afterPath="$PROJECT_DIR$/ctrl/ctrl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wrks/wrk.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrks/wrk_auditor.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk_auditor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrks/wrk_formation_type.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk_scope.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrks/wrk_internal_qualification.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk_organization.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wrks/wrk_nmsstandard.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk_standard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wrks/wrk_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/wrks/wrk_report.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,12 +50,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="18" />
-          <entry key="php" value="1591" />
+          <entry key="php" value="2138" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="1581" />
+          <entry key="PHP" value="2128" />
           <entry key="PLAIN_TEXT" value="18" />
           <entry key="SQL" value="10" />
         </counts>
@@ -216,11 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ctrl/ctrl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+            <state relative-caret-position="342">
+              <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -237,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrks/wrk.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="122" selection-end-column="5" />
+            <state relative-caret-position="507">
+              <caret line="134" column="4" lean-forward="true" selection-start-line="134" selection-start-column="4" selection-end-line="142" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -282,16 +133,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wrks/wrk_report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+            <state relative-caret-position="345">
+              <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="140" selection-end-column="5" />
               <folding>
                 <element signature="n#get_report_general_infos#0;n#WrkReport#0;n#!!top" />
                 <element signature="n#get_auditPlan_auditManager#0;n#WrkReport#0;n#!!top" />
                 <element signature="n#get_auditPlan_auditors_list#0;n#WrkReport#0;n#!!top" />
                 <element signature="n#get_auditPlan_plan#0;n#WrkReport#0;n#!!top" />
+                <element signature="n#get_checklist_questions#0;n#WrkReport#0;n#!!top" />
+                <element signature="n#get_other_checklist_names#0;n#WrkReport#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -325,7 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>INSERT</find>
       <find>Process</find>
       <find>Capacity</find>
       <find>capacity</find>
@@ -355,6 +207,7 @@
       <find>get_auditor_type</find>
       <find>get_user_type</find>
       <find>get_report_general_infos</find>
+      <find>fk_checklist_question</find>
     </findStrings>
     <replaceStrings>
       <replace>standard</replace>
@@ -362,6 +215,7 @@
       <replace>organization</replace>
       <replace>$organization</replace>
       <replace>scope</replace>
+      <replace>fk_question</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -387,9 +241,9 @@
         <option value="$PROJECT_DIR$/wrks/wrk_userType.php" />
         <option value="$PROJECT_DIR$/wrks/wrk_auditor.php" />
         <option value="$PROJECT_DIR$/wrks/wrk_organization.php" />
+        <option value="$PROJECT_DIR$/wrks/wrk_report.php" />
         <option value="$PROJECT_DIR$/wrks/wrk.php" />
         <option value="$PROJECT_DIR$/ctrl/ctrl.php" />
-        <option value="$PROJECT_DIR$/wrks/wrk_report.php" />
       </list>
     </option>
   </component>
@@ -566,12 +420,12 @@
       <workItem from="1535536697104" duration="619000" />
       <workItem from="1535538241666" duration="79000" />
       <workItem from="1535544416371" duration="3244000" />
-      <workItem from="1535610731265" duration="6136000" />
+      <workItem from="1535610731265" duration="8594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233700000" />
+    <option name="totallyTimeSpent" value="236158000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,30 +551,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wrks/wrk.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="119" column="4" selection-start-line="119" selection-start-column="4" selection-end-line="122" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ctrl/ctrl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wrks/wrk_report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="80" column="5" lean-forward="true" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        <state relative-caret-position="345">
+          <caret line="139" column="4" selection-start-line="139" selection-start-column="4" selection-end-line="140" selection-end-column="5" />
           <folding>
             <element signature="n#get_report_general_infos#0;n#WrkReport#0;n#!!top" />
             <element signature="n#get_auditPlan_auditManager#0;n#WrkReport#0;n#!!top" />
             <element signature="n#get_auditPlan_auditors_list#0;n#WrkReport#0;n#!!top" />
             <element signature="n#get_auditPlan_plan#0;n#WrkReport#0;n#!!top" />
+            <element signature="n#get_checklist_questions#0;n#WrkReport#0;n#!!top" />
+            <element signature="n#get_other_checklist_names#0;n#WrkReport#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wrks/wrk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="134" column="4" lean-forward="true" selection-start-line="134" selection-start-column="4" selection-end-line="142" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl/ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
         </state>
       </provider>
     </entry>

@@ -31,6 +31,14 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_auditPlan_auditors_list($_GET["auditPlan_auditors_list"]);
 } else if (isset($_GET["auditPlan_plan"])) {
     echo $ctrl->get_auditPlan_plan($_GET["auditPlan_plan"]);
+} else if (isset($_GET["report_checklist_questions"])) {
+    echo $ctrl->get_checklist_questions($_GET["report_checklist_questions"]);
+} else if (isset($_GET["other_checklist_names"])) {
+    echo $ctrl->get_other_checklist_names($_GET["other_checklist_names"]);
+} else if (isset($_GET["generalFeeling_name"])) {
+    echo $ctrl->get_generalFeeling_name($_GET["generalFeeling_name"]);
+} else if (isset($_GET["generalFeeling_positivePoints"])) {
+    echo $ctrl->get_generalFeelings_positivePoints($_GET["generalFeeling_positivePoints"]);
 } else if ($json = json_decode(file_get_contents('php://input'))) {
     if ($json->username && $json->password) {
         echo $ctrl->login($json);
@@ -193,6 +201,26 @@ class Ctrl
     public function get_auditPlan_plan($pk_report)
     {
         return $this->wrk->get_auditPlan_plan($pk_report);
+    }
+
+    public function get_checklist_questions($pk_report)
+    {
+        return $this->wrk->get_checklist_questions($pk_report);
+    }
+
+    public function get_other_checklist_names($pk_report)
+    {
+        return $this->wrk->get_other_checklist_names($pk_report);
+    }
+
+    public function get_generalFeeling_name($pk_report)
+    {
+        return $this->wrk->get_generalFeeling_name($pk_report);
+    }
+
+    public function get_generalFeelings_positivePoints($pk_generalFeeling)
+    {
+        return $this->wrk->get_generalFeelings_positivePoints($pk_generalFeeling);
     }
 }
 

@@ -121,6 +121,26 @@ class Wrk
     {
         return $this->wrk_report->get_auditPlan_plan($this->db_connection, $pk_report);
     }
+
+    public function get_checklist_questions($pk_report)
+    {
+        return $this->wrk_report->get_checklist_questions($this->db_connection, $pk_report);
+    }
+
+    public function get_other_checklist_names($pk_report)
+    {
+        return $this->wrk_report->get_other_checklist_names($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeeling_name($pk_report)
+    {
+        return $this->wrk_report->get_generalFeeling_name($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeelings_positivePoints($pk_generalFeeling)
+    {
+        return $this->wrk_report->get_generalFeelings_positivePoints($this->db_connection, $pk_generalFeeling);
+    }
 }
 
 
