@@ -1,9 +1,0 @@
-1. Ajout des employés							v/
-2. Modification des informations					x
-3. Pièces jointes 							v/
-4. login								x
-5. formulaire contact							x
-6. Droits accès admin-normal						x
-7. Ajouter extrait de casier judiciaire dans administratif (employé)	v/
-8. Calendrier événements communs (page d’accueil)			x
-9. Tri liste des employées (+ barre de recherche)			x
