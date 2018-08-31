@@ -35,10 +35,34 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_checklist_questions($_GET["report_checklist_questions"]);
 } else if (isset($_GET["other_checklist_names"])) {
     echo $ctrl->get_other_checklist_names($_GET["other_checklist_names"]);
-} else if (isset($_GET["generalFeeling_name"])) {
-    echo $ctrl->get_generalFeeling_name($_GET["generalFeeling_name"]);
-} else if (isset($_GET["generalFeeling_positivePoints"])) {
-    echo $ctrl->get_generalFeelings_positivePoints($_GET["generalFeeling_positivePoints"]);
+} else if (isset($_GET["auditedPeople_list"])) {
+    echo $ctrl->get_auditedPeople_list($_GET["auditedPeople_list"]);
+} else if (isset($_GET["generalFeelingManagementSystem"])) {
+    echo $ctrl->get_generalFeelingManagementSystem($_GET["generalFeelingManagementSystem"]);
+} else if (isset($_GET["generalFeelingManagement"])) {
+    echo $ctrl->get_generalFeelingManagement($_GET["generalFeelingManagement"]);
+} else if (isset($_GET["generalFeelingPerformance"])) {
+    echo $ctrl->get_generalFeelingPerformance($_GET["generalFeelingPerformance"]);
+} else if (isset($_GET["generalFeelingProduction"])) {
+    echo $ctrl->get_generalFeelingProduction($_GET["generalFeelingProduction"]);
+} else if (isset($_GET["generalFeelingRessource"])) {
+    echo $ctrl->get_generalFeelingRessource($_GET["generalFeelingRessource"]);
+} else if (isset($_GET["auditReports_list"])) {
+    echo $ctrl->get_auditReports_list($_GET["auditReports_list"]);
+} else if (isset($_GET["conclusionComments"])) {
+    echo $ctrl->get_conclusionComments($_GET["conclusionComments"]);
+} else if (isset($_GET["conclusionCompliance"])) {
+    echo $ctrl->get_conclusionCompliance($_GET["conclusionCompliance"]);
+} else if (isset($_GET["conclusionNoncompliance"])) {
+    echo $ctrl->get_conclusionNoncompliance($_GET["conclusionNoncompliance"]);
+} else if (isset($_GET["conclusionReview"])) {
+    echo $ctrl->get_conclusionReview($_GET["conclusionReview"]);
+} else if (isset($_GET["status_list"])) {
+    echo $ctrl->get_status_list($_GET["status_list"]);
+} else if (isset($_GET["certificationDecision"])) {
+    echo $ctrl->get_certificationDecision($_GET["certificationDecision"]);
+} else if (isset($_GET["variousDocuments"])) {
+    echo $ctrl->get_documents($_GET["variousDocuments"]);
 } else if ($json = json_decode(file_get_contents('php://input'))) {
     if ($json->username && $json->password) {
         echo $ctrl->login($json);
@@ -183,9 +207,9 @@ class Ctrl
         return $this->wrk->get_type_list();
     }
 
-    public function get_report_general_infos($fk_organization)
+    public function get_report_general_infos($pk_report)
     {
-        return $this->wrk->get_report_general_infos($fk_organization);
+        return $this->wrk->get_report_general_infos($pk_report);
     }
 
     public function get_auditPlan_auditManager($pk_report)
@@ -213,14 +237,74 @@ class Ctrl
         return $this->wrk->get_other_checklist_names($pk_report);
     }
 
-    public function get_generalFeeling_name($pk_report)
+    public function get_auditedPeople_list($pk_report)
     {
-        return $this->wrk->get_generalFeeling_name($pk_report);
+        return $this->wrk->get_auditedPeople_list($pk_report);
     }
 
-    public function get_generalFeelings_positivePoints($pk_generalFeeling)
+    public function get_generalFeelingManagementSystem($pk_report)
     {
-        return $this->wrk->get_generalFeelings_positivePoints($pk_generalFeeling);
+        return $this->wrk->get_generalFeelingManagementSystem($pk_report);
+    }
+
+    public function get_generalFeelingManagement($pk_report)
+    {
+        return $this->wrk->get_generalFeelingManagement($pk_report);
+    }
+
+    public function get_generalFeelingPerformance($pk_report)
+    {
+        return $this->wrk->get_generalFeelingPerformance($pk_report);
+    }
+
+    public function get_generalFeelingProduction($pk_report)
+    {
+        return $this->wrk->get_generalFeelingProduction($pk_report);
+    }
+
+    public function get_generalFeelingRessource($pk_report)
+    {
+        return $this->wrk->get_generalFeelingRessource($pk_report);
+    }
+
+    public function get_auditReports_list($pk_report)
+    {
+        return $this->wrk->get_auditReports_list($pk_report);
+    }
+
+    public function get_conclusionComments($pk_report)
+    {
+        return $this->wrk->get_conclusionComments($pk_report);
+    }
+
+    public function get_conclusionCompliance($pk_report)
+    {
+        return $this->wrk->get_conclusionCompliance($pk_report);
+    }
+
+    public function get_conclusionNoncompliance($pk_report)
+    {
+        return $this->wrk->get_conclusionNoncompliance($pk_report);
+    }
+
+    public function get_conclusionReview($pk_report)
+    {
+        return $this->wrk->get_conclusionReview($pk_report);
+    }
+
+    public function get_status_list()
+    {
+        return $this->wrk->get_status_list();
+    }
+
+    public function get_certificationDecision($pk_report)
+    {
+        return $this->wrk->get_certificationDecision($pk_report);
+    }
+
+    public function get_documents($pk_report)
+    {
+        return $this->wrk->get_documents($pk_report);
     }
 }
 

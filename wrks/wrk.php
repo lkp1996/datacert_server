@@ -7,6 +7,7 @@ include("wrk_organization.php");
 include("wrk_login.php");
 include("wrk_userType.php");
 include("wrk_report.php");
+include("wrk_status.php");
 
 session_start();
 
@@ -20,6 +21,7 @@ class Wrk
     private $wrk_login;
     private $wrk_userType;
     private $wrk_report;
+    private $wrk_status;
 
     public function __construct()
     {
@@ -34,6 +36,7 @@ class Wrk
         $this->wrk_login = new WrkLogin();
         $this->wrk_userType = new WrkUserType();
         $this->wrk_report = new WrkReport();
+        $this->wrk_status = new WrkStatus();
     }
 
     public function get_auditors_list($pk_auditor)
@@ -102,9 +105,9 @@ class Wrk
         return $this->wrk_userType->get_type_list($this->db_connection);
     }
 
-    public function get_report_general_infos($fk_organization)
+    public function get_report_general_infos($pk_report)
     {
-        return $this->wrk_report->get_report_general_infos($this->db_connection, $fk_organization);
+        return $this->wrk_report->get_report_general_infos($this->db_connection, $pk_report);
     }
 
     public function get_auditPlan_auditManager($pk_report)
@@ -132,14 +135,74 @@ class Wrk
         return $this->wrk_report->get_other_checklist_names($this->db_connection, $pk_report);
     }
 
-    public function get_generalFeeling_name($pk_report)
+    public function get_auditedPeople_list($pk_report)
     {
-        return $this->wrk_report->get_generalFeeling_name($this->db_connection, $pk_report);
+        return $this->wrk_report->get_auditedPeople_list($this->db_connection, $pk_report);
     }
 
-    public function get_generalFeelings_positivePoints($pk_generalFeeling)
+    public function get_generalFeelingManagementSystem($pk_report)
     {
-        return $this->wrk_report->get_generalFeelings_positivePoints($this->db_connection, $pk_generalFeeling);
+        return $this->wrk_report->get_generalFeelingManagementSystem($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeelingManagement($pk_report)
+    {
+        return $this->wrk_report->get_generalFeelingManagement($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeelingPerformance($pk_report)
+    {
+        return $this->wrk_report->get_generalFeelingPerformance($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeelingProduction($pk_report)
+    {
+        return $this->wrk_report->get_generalFeelingProduction($this->db_connection, $pk_report);
+    }
+
+    public function get_generalFeelingRessource($pk_report)
+    {
+        return $this->wrk_report->get_generalFeelingRessource($this->db_connection, $pk_report);
+    }
+
+    public function get_auditReports_list($pk_report)
+    {
+        return $this->wrk_report->get_auditReports_list($this->db_connection, $pk_report);
+    }
+
+    public function get_conclusionComments($pk_report)
+    {
+        return $this->wrk_report->get_conclusionComments($this->db_connection, $pk_report);
+    }
+
+    public function get_conclusionCompliance($pk_report)
+    {
+        return $this->wrk_report->get_conclusionCompliance($this->db_connection, $pk_report);
+    }
+
+    public function get_conclusionNoncompliance($pk_report)
+    {
+        return $this->wrk_report->get_conclusionNoncompliance($this->db_connection, $pk_report);
+    }
+
+    public function get_conclusionReview($pk_report)
+    {
+        return $this->wrk_report->get_conclusionReview($this->db_connection, $pk_report);
+    }
+
+    public function get_status_list()
+    {
+        return $this->wrk_status->get_status_list($this->db_connection);
+    }
+
+    public function get_certificationDecision($pk_report)
+    {
+        return $this->wrk_status->get_certificationDecision($pk_report);
+    }
+
+    public function get_documents($pk_report)
+    {
+        return $this->wrk_status->get_documents($pk_report);
     }
 }
 
