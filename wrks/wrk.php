@@ -9,6 +9,9 @@ include("wrk_userType.php");
 include("wrk_report.php");
 include("wrk_status.php");
 include("wrk_auditType.php");
+include("wrk_interpretation.php");
+include("wrk_checklist.php");
+include("wrk_language.php");
 
 session_start();
 
@@ -24,6 +27,9 @@ class Wrk
     private $wrk_report;
     private $wrk_status;
     private $wrk_auditType;
+    private $wrk_interpretation;
+    private $wrk_checklist;
+    private $wrk_language;
 
     public function __construct()
     {
@@ -40,6 +46,9 @@ class Wrk
         $this->wrk_report = new WrkReport();
         $this->wrk_status = new WrkStatus();
         $this->wrk_auditType = new WrkAuditType();
+        $this->wrk_interpretation = new WrkInterpretation();
+        $this->wrk_checklist = new WrkChecklist();
+        $this->wrk_language = new WrkLanguage();
     }
 
     public function get_auditors_list($pk_auditor)
@@ -113,9 +122,14 @@ class Wrk
         return $this->wrk_userType->get_user_type($this->db_connection, $fk_userType);
     }
 
-    public function get_type_list()
+    public function get_type_list_auditor()
     {
-        return $this->wrk_userType->get_type_list($this->db_connection);
+        return $this->wrk_userType->get_type_list_auditor($this->db_connection);
+    }
+
+    public function get_type_list_organization()
+    {
+        return $this->wrk_userType->get_type_list_organization($this->db_connection);
     }
 
     public function get_report_general_infos($pk_report)
@@ -148,9 +162,14 @@ class Wrk
         return $this->wrk_report->get_auditPlan_plan($this->db_connection, $pk_report);
     }
 
-    public function get_checklist_questions($pk_report)
+    public function get_checklist_questions($pk_report_checklist)
     {
-        return $this->wrk_report->get_checklist_questions($this->db_connection, $pk_report);
+        return $this->wrk_report->get_checklist_questions($this->db_connection, $pk_report_checklist);
+    }
+
+    public function get_checklist_names($pk_report)
+    {
+        return $this->wrk_report->get_checklist_names($this->db_connection, $pk_report);
     }
 
     public function get_other_checklist_names($pk_report)
@@ -213,6 +232,11 @@ class Wrk
         return $this->wrk_report->get_conclusionReview($this->db_connection, $pk_report);
     }
 
+    public function get_conclusion($pk_report)
+    {
+        return $this->wrk_report->get_conclusion($this->db_connection, $pk_report);
+    }
+
     public function get_status_list()
     {
         return $this->wrk_status->get_status_list($this->db_connection);
@@ -220,17 +244,37 @@ class Wrk
 
     public function get_certificationDecision($pk_report)
     {
-        return $this->wrk_status->get_certificationDecision($pk_report);
+        return $this->wrk_report->get_certificationDecision($this->db_connection, $pk_report);
     }
 
     public function get_documents($pk_report)
     {
-        return $this->wrk_status->get_documents($pk_report);
+        return $this->wrk_report->get_documents($this->db_connection, $pk_report);
     }
 
     public function get_audit_type_list()
     {
         return $this->wrk_auditType->get_audit_type_list($this->db_connection);
+    }
+
+    public function get_interpretation_list()
+    {
+        return $this->wrk_interpretation->get_interpretation_list($this->db_connection);
+    }
+
+    public function get_checklists_names()
+    {
+        return $this->wrk_checklist->get_checklists_names($this->db_connection);
+    }
+
+    public function get_checklists_questions($pk_checklist)
+    {
+        return $this->wrk_checklist->get_checklists_questions($this->db_connection, $pk_checklist);
+    }
+
+    public function get_language_list()
+    {
+        return $this->wrk_language->get_language_list($this->db_connection);
     }
 }
 

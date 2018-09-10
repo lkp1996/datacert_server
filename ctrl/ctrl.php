@@ -25,8 +25,10 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_userId($_GET["getUserID"]);
 } else if (isset($_GET["userType"])) {
     echo $ctrl->get_user_type($_GET["userType"]);
-} else if (isset($_GET["type_list"])) {
-    echo $ctrl->get_type_list();
+} else if (isset($_GET["type_list_auditor"])) {
+    echo $ctrl->get_type_list_auditor();
+} else if (isset($_GET["type_list_organization"])) {
+    echo $ctrl->get_type_list_organization();
 } else if (isset($_GET["report_general_infos"])) {
     echo $ctrl->get_report_general_infos($_GET["report_general_infos"]);
 } else if (isset($_GET["audit_dates"])) {
@@ -41,6 +43,8 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_auditPlan_plan($_GET["auditPlan_plan"]);
 } else if (isset($_GET["report_checklist_questions"])) {
     echo $ctrl->get_checklist_questions($_GET["report_checklist_questions"]);
+} else if (isset($_GET["checklist_names"])) {
+    echo $ctrl->get_checklist_names($_GET["checklist_names"]);
 } else if (isset($_GET["other_checklist_names"])) {
     echo $ctrl->get_other_checklist_names($_GET["other_checklist_names"]);
 } else if (isset($_GET["auditedPeople_list"])) {
@@ -65,6 +69,8 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_conclusionNoncompliance($_GET["conclusionNoncompliance"]);
 } else if (isset($_GET["conclusionReview"])) {
     echo $ctrl->get_conclusionReview($_GET["conclusionReview"]);
+} else if (isset($_GET["conclusion"])) {
+    echo $ctrl->get_conclusion($_GET["conclusion"]);
 } else if (isset($_GET["status_list"])) {
     echo $ctrl->get_status_list($_GET["status_list"]);
 } else if (isset($_GET["certificationDecision"])) {
@@ -73,6 +79,14 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_documents($_GET["variousDocuments"]);
 } else if (isset($_GET["auditType_list"])) {
     echo $ctrl->get_audit_type_list($_GET["auditType_list"]);
+} else if (isset($_GET["interpretations"])) {
+    echo $ctrl->get_interpretation_list();
+} else if (isset($_GET["checklists_names"])) {
+    echo $ctrl->get_checklists_names();
+} else if (isset($_GET["checklist_questions_all"])) {
+    echo $ctrl->get_checklists_questions($_GET["checklist_questions_all"]);
+} else if (isset($_GET["language_list"])) {
+    echo $ctrl->get_language_list();
 } else if ($json = json_decode(file_get_contents('php://input'))) {
     if ($json->username && $json->password) {
         echo $ctrl->login($json);
@@ -222,9 +236,14 @@ class Ctrl
         return $this->wrk->get_user_type($fk_userType);
     }
 
-    public function get_type_list()
+    public function get_type_list_auditor()
     {
-        return $this->wrk->get_type_list();
+        return $this->wrk->get_type_list_auditor();
+    }
+
+    public function get_type_list_organization()
+    {
+        return $this->wrk->get_type_list_organization();
     }
 
     public function get_report_general_infos($pk_report)
@@ -257,9 +276,14 @@ class Ctrl
         return $this->wrk->get_auditPlan_plan($pk_report);
     }
 
-    public function get_checklist_questions($pk_report)
+    public function get_checklist_questions($pk_report_checklist)
     {
-        return $this->wrk->get_checklist_questions($pk_report);
+        return $this->wrk->get_checklist_questions($pk_report_checklist);
+    }
+
+    public function get_checklist_names($pk_report)
+    {
+        return $this->wrk->get_checklist_names($pk_report);
     }
 
     public function get_other_checklist_names($pk_report)
@@ -322,6 +346,11 @@ class Ctrl
         return $this->wrk->get_conclusionReview($pk_report);
     }
 
+    public function get_conclusion($pk_report)
+    {
+        return $this->wrk->get_conclusion($pk_report);
+    }
+
     public function get_status_list()
     {
         return $this->wrk->get_status_list();
@@ -340,6 +369,26 @@ class Ctrl
     public function get_audit_type_list()
     {
         return $this->wrk->get_audit_type_list();
+    }
+
+    public function get_interpretation_list()
+    {
+        return $this->wrk->get_interpretation_list();
+    }
+
+    public function get_checklists_names()
+    {
+        return $this->wrk->get_checklists_names();
+    }
+
+    public function get_checklists_questions($pk_checklist)
+    {
+        return $this->wrk->get_checklists_questions($pk_checklist);
+    }
+
+    public function get_language_list()
+    {
+        return $this->wrk->get_language_list();
     }
 }
 

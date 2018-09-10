@@ -106,7 +106,7 @@ class WrkReport
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT plan.pk_plan, plan.services, plan.startDate, plan.endDate, plan.place, plan.auditedStaff, plan.standardChapter from plan inner join auditPlan on auditPlan.pk_auditPlan = plan.fk_auditPlan where auditPlan.fk_report = $pk_report";
+        $sql = "SELECT plan.pk_plan, plan.services, plan.startDate, plan.endDate, plan.place, plan.auditedStaff, plan.standardChapter, plan.fk_auditor, auditor.lastName, auditor.firstName from plan inner join auditPlan on auditPlan.pk_auditPlan = plan.fk_auditPlan inner join auditor on plan.fk_auditor = auditor.pk_auditor where auditPlan.fk_report = $pk_report";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -118,14 +118,38 @@ class WrkReport
         return json_encode($emparray);
     }
 
-    public function get_checklist_questions(DBConnection $db_connection, $pk_report)
+    public function get_checklist_questions(DBConnection $db_connection, $pk_report_checklist)
     {
         $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
         mysqli_set_charset($this->connection, "utf8");
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT question.question, report_checklist.fk_report, report_checklist.fk_question, report_checklist.yes, report_checklist.comment FROM report_checklist INNER JOIN question on report_checklist.fk_question = question.pk_question WHERE fk_report = $pk_report";
+        $sql = "SELECT question.question, question_checklist_report.yes, question_checklist_report.comment from question_checklist_report INNER JOIN question on question_checklist_report.fk_question = question.pk_question INNER join report_checklist on question_checklist_report.fk_report_checklist = report_checklist.pk_report_checklist WHERE report_checklist.pk_report_checklist = $pk_report_checklist";
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["yes"] == 0) {
+                    $row["yes"] = false;
+                } else {
+                    $row["yes"] = true;
+                }
+                $emparray[] = $row;
+            }
+        } else {
+        }
+        mysqli_close($this->connection);
+        return json_encode($emparray);
+    }
+
+    public function get_checklist_names(DBConnection $db_connection, $pk_report)
+    {
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if (!$this->connection) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT checklist.pk_checklist, checklist.name, report_checklist.pk_report_checklist FROM checklist INNER JOIN report_checklist on report_checklist.fk_checklist = checklist.pk_checklist WHERE report_checklist.fk_report = $pk_report";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -144,7 +168,7 @@ class WrkReport
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "(SELECT checklist.pk_checklist, checklist.name FROM checklist WHERE checklist.pk_checklist NOT IN (SELECT report_checklist.fk_report from report_checklist)) UNION (SELECT checklist.pk_checklist, checklist.name FROM checklist INNER JOIN report_checklist on report_checklist.fk_report = checklist.pk_checklist WHERE report_checklist.fk_report != $pk_report)";
+        $sql = "(SELECT checklist.pk_checklist, checklist.name FROM checklist INNER JOIN report_checklist on report_checklist.fk_checklist = checklist.pk_checklist WHERE report_checklist.fk_report != $pk_report) UNION (SELECT checklist.pk_checklist, checklist.name FROM checklist WHERE checklist.pk_checklist NOT IN (SELECT report_checklist.fk_checklist from report_checklist))";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -167,6 +191,21 @@ class WrkReport
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["openingMeeting"] == 0) {
+                    $row["openingMeeting"] = false;
+                } else {
+                    $row["openingMeeting"] = true;
+                }
+                if ($row["onSiteAudit"] == 0) {
+                    $row["onSiteAudit"] = false;
+                } else {
+                    $row["onSiteAudit"] = true;
+                }
+                if ($row["closingMeeting"] == 0) {
+                    $row["closingMeeting"] = false;
+                } else {
+                    $row["closingMeeting"] = true;
+                }
                 $emparray[] = $row;
             }
         } else {
@@ -300,6 +339,11 @@ class WrkReport
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["yes"] == 0) {
+                    $row["yes"] = false;
+                } else {
+                    $row["yes"] = true;
+                }
                 $emparray[] = $row;
             }
         } else {
@@ -319,6 +363,11 @@ class WrkReport
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["yes"] == 0) {
+                    $row["yes"] = false;
+                } else {
+                    $row["yes"] = true;
+                }
                 $emparray[] = $row;
             }
         } else {
@@ -338,6 +387,11 @@ class WrkReport
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["yes"] == 0) {
+                    $row["yes"] = false;
+                } else {
+                    $row["yes"] = true;
+                }
                 $emparray[] = $row;
             }
         } else {
@@ -354,6 +408,30 @@ class WrkReport
             die("Connection failed: " . mysqli_connect_error());
         }
         $sql = "SELECT conclusionReview.pk_conclusionReview, conclusionReview.title, conclusionReview_conclusion.yes, conclusionReview_conclusion.comment FROM conclusionReview_conclusion inner join conclusionReview on conclusionReview_conclusion.fk_conclusionReview = conclusionReview.pk_conclusionReview inner join conclusion on conclusionReview_conclusion.fk_conclusion = conclusion.pk_conclusion where conclusion.fk_report = $pk_report";
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row["yes"] == 0) {
+                    $row["yes"] = false;
+                } else {
+                    $row["yes"] = true;
+                }
+                $emparray[] = $row;
+            }
+        } else {
+        }
+        mysqli_close($this->connection);
+        return json_encode($emparray);
+    }
+
+    public function get_conclusion(DBConnection $db_connection, $pk_report)
+    {
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if (!$this->connection) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT * FROM  conclusion where conclusion.fk_report = $pk_report";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -402,6 +480,7 @@ class WrkReport
         mysqli_close($this->connection);
         return json_encode($emparray);
     }
+
 }
 
 ?>
