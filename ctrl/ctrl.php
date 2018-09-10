@@ -15,8 +15,12 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_scopes_list();
 } else if (isset($_GET["standards"])) {
     echo $ctrl->get_standard_list();
-} else if (isset($_GET["auditor_internalqualificationsprocess"])) {
-    echo $ctrl->get_organizations_list($_GET["auditor_internalqualificationsprocess"]);
+} else if (isset($_GET["organizations_list"])) {
+    echo $ctrl->get_organizations_list($_GET["organizations_list"]);
+} else if (isset($_GET["organizations_profile"])) {
+    echo $ctrl->get_organization_profile($_GET["organizations_profile"]);
+} else if (isset($_GET["organization_audits_list"])) {
+    echo $ctrl->get_organization_audits_list($_GET["organization_audits_list"]);
 } else if (isset($_GET["getUserID"])) {
     echo $ctrl->get_userId($_GET["getUserID"]);
 } else if (isset($_GET["userType"])) {
@@ -25,6 +29,10 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_type_list();
 } else if (isset($_GET["report_general_infos"])) {
     echo $ctrl->get_report_general_infos($_GET["report_general_infos"]);
+} else if (isset($_GET["audit_dates"])) {
+    echo $ctrl->get_audit_dates($_GET["audit_dates"]);
+} else if (isset($_GET["audit_scopes"])) {
+    echo $ctrl->get_audit_scopes($_GET["audit_scopes"]);
 } else if (isset($_GET["auditPlan_auditManager"])) {
     echo $ctrl->get_auditPlan_auditManager($_GET["auditPlan_auditManager"]);
 } else if (isset($_GET["auditPlan_auditors_list"])) {
@@ -63,6 +71,8 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_certificationDecision($_GET["certificationDecision"]);
 } else if (isset($_GET["variousDocuments"])) {
     echo $ctrl->get_documents($_GET["variousDocuments"]);
+} else if (isset($_GET["auditType_list"])) {
+    echo $ctrl->get_audit_type_list($_GET["auditType_list"]);
 } else if ($json = json_decode(file_get_contents('php://input'))) {
     if ($json->username && $json->password) {
         echo $ctrl->login($json);
@@ -167,6 +177,16 @@ class Ctrl
         return $this->wrk->get_organizations_list($auditor);
     }
 
+    public function get_organization_profile($pk_organization)
+    {
+        return $this->wrk->get_organization_profile($pk_organization);
+    }
+
+    public function get_organization_audits_list($pk_organization)
+    {
+        return $this->wrk->get_organization_audits_list($pk_organization);
+    }
+
     public function delete_auditor($pk_auditor)
     {
         return $this->wrk->delete_auditor($pk_auditor);
@@ -210,6 +230,16 @@ class Ctrl
     public function get_report_general_infos($pk_report)
     {
         return $this->wrk->get_report_general_infos($pk_report);
+    }
+
+    public function get_audit_dates($pk_report)
+    {
+        return $this->wrk->get_audit_dates($pk_report);
+    }
+
+    public function get_audit_scopes($pk_report)
+    {
+        return $this->wrk->get_audit_scopes($pk_report);
     }
 
     public function get_auditPlan_auditManager($pk_report)
@@ -305,6 +335,11 @@ class Ctrl
     public function get_documents($pk_report)
     {
         return $this->wrk->get_documents($pk_report);
+    }
+
+    public function get_audit_type_list()
+    {
+        return $this->wrk->get_audit_type_list();
     }
 }
 

@@ -8,6 +8,7 @@ include("wrk_login.php");
 include("wrk_userType.php");
 include("wrk_report.php");
 include("wrk_status.php");
+include("wrk_auditType.php");
 
 session_start();
 
@@ -22,6 +23,7 @@ class Wrk
     private $wrk_userType;
     private $wrk_report;
     private $wrk_status;
+    private $wrk_auditType;
 
     public function __construct()
     {
@@ -37,6 +39,7 @@ class Wrk
         $this->wrk_userType = new WrkUserType();
         $this->wrk_report = new WrkReport();
         $this->wrk_status = new WrkStatus();
+        $this->wrk_auditType = new WrkAuditType();
     }
 
     public function get_auditors_list($pk_auditor)
@@ -65,9 +68,19 @@ class Wrk
         return $this->wrk_standard->get_standard_list($this->db_connection);
     }
 
-    public function get_organizations_list($auditor)
+    public function get_organizations_list($pk_auditor)
     {
-        return $this->wrk_organization->get_organizations_list($this->db_connection, $auditor);
+        return $this->wrk_organization->get_organizations_list($this->db_connection, $pk_auditor);
+    }
+
+    public function get_organization_profile($pk_organization)
+    {
+        return $this->wrk_organization->get_organization_profile($this->db_connection, $pk_organization);
+    }
+
+    public function get_organization_audits_list($pk_organization)
+    {
+        return $this->wrk_organization->get_organization_audits_list($this->db_connection, $pk_organization);
     }
 
     public function delete_auditor($pk_auditor)
@@ -108,6 +121,16 @@ class Wrk
     public function get_report_general_infos($pk_report)
     {
         return $this->wrk_report->get_report_general_infos($this->db_connection, $pk_report);
+    }
+
+    public function get_audit_dates($pk_report)
+    {
+        return $this->wrk_report->get_audit_dates($this->db_connection, $pk_report);
+    }
+
+    public function get_audit_scopes($pk_report)
+    {
+        return $this->wrk_report->get_audit_scopes($this->db_connection, $pk_report);
     }
 
     public function get_auditPlan_auditManager($pk_report)
@@ -203,6 +226,11 @@ class Wrk
     public function get_documents($pk_report)
     {
         return $this->wrk_status->get_documents($pk_report);
+    }
+
+    public function get_audit_type_list()
+    {
+        return $this->wrk_auditType->get_audit_type_list($this->db_connection);
     }
 }
 

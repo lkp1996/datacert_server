@@ -23,6 +23,44 @@ class WrkReport
         return json_encode($emparray);
     }
 
+    public function get_audit_dates(DBConnection $db_connection, $pk_report)
+    {
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if (!$this->connection) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT pk_auditDate, auditDate FROM auditDate WHERE fk_report = $pk_report";
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $emparray[] = $row;
+            }
+        } else {
+        }
+        mysqli_close($this->connection);
+        return json_encode($emparray);
+    }
+
+    public function get_audit_scopes(DBConnection $db_connection, $pk_report)
+    {
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if (!$this->connection) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT * FROM report_scope WHERE fk_report = $pk_report";
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $emparray[] = $row;
+            }
+        } else {
+        }
+        mysqli_close($this->connection);
+        return json_encode($emparray);
+    }
+
     public function get_auditPlan_auditManager(DBConnection $db_connection, $pk_report)
     {
         $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());

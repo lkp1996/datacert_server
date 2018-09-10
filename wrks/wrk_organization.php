@@ -4,14 +4,14 @@ class WrkOrganization
 {
     private $connection;
 
-    public function get_organizations_list(DBConnection $db_connection)
+    public function get_organizations_list(DBConnection $db_connection, $pk_auditor)
     {
         $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
         mysqli_set_charset($this->connection, "utf8");
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT name, headquartersLocation FROM organization";
+        $sql = "SELECT pk_organization, name, headquartersLocation FROM organization";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -49,7 +49,7 @@ class WrkOrganization
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT name FROM report WHERE fk_organization = $pk_organization";
+        $sql = "SELECT pk_report, name FROM report WHERE fk_organization = $pk_organization";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
