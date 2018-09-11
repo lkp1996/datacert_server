@@ -87,23 +87,23 @@ if (isset($_GET["auditors_list"])) {
     echo $ctrl->get_checklists_questions($_GET["checklist_questions_all"]);
 } else if (isset($_GET["language_list"])) {
     echo $ctrl->get_language_list();
+} else if (isset($_GET["addresses"])) {
+    echo $ctrl->get_addresses($_GET["addresses"]);
 } else if ($json = json_decode(file_get_contents('php://input'))) {
     if ($json->username && $json->password) {
         echo $ctrl->login($json);
     } else if (!$json->pk_auditor && $json->lastName) {
         echo $ctrl->add_auditor($json);
+    } else if (!$json->pk_organization && $json->name && $json->contactLastName) {
+        echo $ctrl->add_organization($json);
     } else if ($json->pk_auditor && $json->lastName) {
         echo $ctrl->update_auditor_admin($json);
+    } else if ($json->pk_organization && $json->name && $json->contactLastName) {
+        echo $ctrl->update_organization($json);
     } else if ($json->pk_auditor && $json->oldPassword && $json->newPassword) {
         echo $ctrl->update_password($json);
-    } else if ($json[0]->pk_internalQualificationsProcess && $json[0]->fk_auditor) {
-        echo $ctrl->update_organization($json);
-    } else if ($json[0]->pk_auditObservation || $json[0]->pk_auditObservation == "0") {
-        echo $ctrl->update_auditor_auditObservations($json);
-    } else if ($json[0]->pk_mandateSheet || $json[0]->pk_mandateSheet == "0") {
-        echo $ctrl->update_auditor_mandateSheets($json);
-    } else if ($json[0]->pk_objective || $json[0]->pk_objective == "0") {
-        echo $ctrl->update_auditor_objectives($json);
+    } else if ($json[0]->pk_address || $json[0]->pk_address == "0") {
+        echo $ctrl->update_addresses($json);
     } else {
         echo "nothing yet";
     }
@@ -389,6 +389,21 @@ class Ctrl
     public function get_language_list()
     {
         return $this->wrk->get_language_list();
+    }
+
+    public function add_organization($organization)
+    {
+        return $this->wrk->add_organization($organization);
+    }
+
+    public function get_addresses($pk_organization)
+    {
+        return $this->wrk->get_addresses($pk_organization);
+    }
+
+    public function update_addresses($addresses)
+    {
+        return $this->wrk->update_addresses($addresses);
     }
 }
 

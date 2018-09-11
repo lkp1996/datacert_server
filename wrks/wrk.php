@@ -276,6 +276,26 @@ class Wrk
     {
         return $this->wrk_language->get_language_list($this->db_connection);
     }
+
+    public function add_organization($organization)
+    {
+        return $this->wrk_organization->add_organization($this->db_connection, $organization);
+    }
+
+    public function update_organization($organization)
+    {
+        return $this->wrk_organization->update_organization($this->db_connection, $organization);
+    }
+
+    public function get_addresses($pk_organization)
+    {
+        return $this->wrk_organization->get_addresses($this->db_connection, $pk_organization);
+    }
+
+    public function update_addresses($addresses)
+    {
+        return $this->wrk_organization->update_addresses($this->db_connection, $addresses);
+    }
 }
 
 

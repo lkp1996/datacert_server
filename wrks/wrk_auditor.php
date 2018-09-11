@@ -31,7 +31,7 @@ class WrkAuditor
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT * FROM auditor WHERE pk_auditor = " . $pk_auditor;
+        $sql = "SELECT pk_auditor, lastName, firstName, email, phone, fk_userType, fk_language FROM auditor WHERE pk_auditor = " . $pk_auditor;
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -97,7 +97,7 @@ class WrkAuditor
         }
 
         $sql = "UPDATE auditor SET lastName = '" . addslashes($auditor->lastName) . "', firstName = '" . addslashes($auditor->firstName) . "', 
-                  phone = '" . addslashes($auditor->phone) . "', email = '$auditor->email' WHERE auditor.pk_auditor = $auditor->pk_auditor";
+                  phone = '" . addslashes($auditor->phone) . "', email = '$auditor->email', fk_userType = '" . $auditor->fk_userType . "', fk_language = '" . $auditor->fk_language . "' WHERE auditor.pk_auditor = $auditor->pk_auditor";
         if ($this->connection->query($sql)) {
             $message = "OK";
         } else {

@@ -61,32 +61,71 @@ class WrkOrganization
         return json_encode($emparray);
     }
 
-    public function add_organization(DBConnection $db_connection, $pk_employee)
+    public function add_organization(DBConnection $db_connection, $organization)
     {
-        $message = "";
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+        $sql = "INSERT INTO organization (pk_organization, name, contactLastName, contactFirstName, phone, email)
+            VALUES (NULL, '" . addslashes($organization->name) . "', '" . addslashes($organization->contactLastName) . "', '" . addslashes($organization->contactFirstName)
+            . "', '" . $organization->phone . "', '" . addslashes($organization->email) . "')";
+        if ($this->connection->query($sql)) {
+            $last_id = $this->connection->insert_id;
+        } else {
+            $last_id = null;
+        }
+
+        $this->connection->close();
+        return $last_id;
+    }
+
+    public function update_organization(DBConnection $db_connection, $organization)
+    {
+        $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
+        mysqli_set_charset($this->connection, "utf8");
+        if ($this->connection->connect_error) {
+            die("Connection failed: " . $this->connection->connect_error);
+        }
+
+        $sql = "UPDATE organization SET name = '" . addslashes($organization->name) . "', email = '" . addslashes($organization->email) . "', phone = '" . addslashes($organization->phone) . "', 
+                    website = '" . addslashes($organization->website) . "', branches = '" . addslashes($organization->branches) . "', contactLastName = '" . addslashes($organization->contactLastName) . "', 
+                    contactFirstName = '" . addslashes($organization->contactFirstName) . "', generalDescription = '" . addslashes($organization->generalDescription) . "', 
+                    outsourcedProcessAndProductsDescription = '" . addslashes($organization->outsourcedProcessAndProductsDescription) . "', headquartersName = '" . addslashes($organization->headquartersName) . "', 
+                    headquartersNP = '" . addslashes($organization->headquartersNP) . "', headquartersAddress = '" . addslashes($organization->headquartersAddress) . "', 
+                    headquartersLocation = '" . addslashes($organization->headquartersLocation) . "', employeesNumber = '$organization->employeesNumber', fullTimeNumber = '$organization->fullTimeNumber', 
+                    changesSinceLastAudit = '" . addslashes($organization->changesSinceLastAudit) . "' WHERE organization.pk_organization = $organization->pk_organization";
+        if ($this->connection->query($sql)) {
+            $message = "OK";
+        } else {
+            $message = "KO";
+        }
+
+        $this->connection->close();
+        return $message;
+    }
+
+    public function get_addresses(DBConnection $db_connection, $pk_organization)
+    {
         $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
         mysqli_set_charset($this->connection, "utf8");
         if (!$this->connection) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT * FROM internalqualificationprocess";
+        $sql = "SELECT * FROM address WHERE fk_organization = $pk_organization";
         $result = mysqli_query($this->connection, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $sql = "INSERT INTO internalqualificationprocess_employee (fk_internalQualificationProcess, fk_employee, yesno, result, validationDate, attachement) VALUES ('" . $row["pk_internalQualificationsProcess"] . "', '" . $pk_employee . "', '0', '', NULL, NULL)";
-                if ($this->connection->query($sql)) {
-                    $message .= "Internal qualification process employee with fk " . $row["pk_internalQualificationsProcess"] . " added successfully \n";
-                } else {
-                    $message .= "Error while adding internal qualification process employee with fk " . $row["pk_internalQualificationsProcess"] . " \n";
-                }
+                $emparray[] = $row;
             }
         } else {
         }
         mysqli_close($this->connection);
-        return $message;
+        return json_encode($emparray);
     }
 
-    public function update_organization(DBConnection $db_connection, $organization)
+    public function update_addresses(DBConnection $db_connection, $addresses)
     {
         $message = "";
         $this->connection = mysqli_connect($db_connection->get_server(), $db_connection->get_username(), $db_connection->get_password(), $db_connection->get_dbname());
@@ -95,17 +134,52 @@ class WrkOrganization
             die("Connection failed: " . $this->connection->connect_error);
         }
 
-        foreach ($organization as $updatedIntQualProcess) {
-            if ($updatedIntQualProcess->yesno == false) {
-                $updatedIntQualProcess->yesno = 0;
-            } else {
-                $updatedIntQualProcess->yesno = 1;
+        $sql = "SELECT * FROM address WHERE fk_organization = " . $addresses[0]->fk_organization;
+        $result = mysqli_query($this->connection, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $oldAddresses[] = $row;
             }
-            $sql = "UPDATE internalqualificationprocess_employee SET yesno = '$updatedIntQualProcess->yesno', result = '" . addslashes($updatedIntQualProcess->result) . "', validationDate = '$updatedIntQualProcess->validationDate', attachement = '$updatedIntQualProcess->attachement' WHERE internalqualificationprocess_employee.fk_internalQualificationProcess = $updatedIntQualProcess->pk_internalQualificationsProcess AND internalqualificationprocess_employee.fk_employee = $updatedIntQualProcess->fk_employee";
-            if ($this->connection->query($sql)) {
-                $message .= "Internal qualification_employee with pk $updatedIntQualProcess->pk_internalQualificationsProcess updated \n";
+        }
+
+        foreach ($addresses as $updatedAddress) {
+            if ($updatedAddress->pk_address == null) {
+                //if there's new addresses (insert)
+                $sql = "INSERT INTO address (pk_address, np, address, location, country, fk_organization) 
+                      VALUES (NULL, '$updatedAddress->np', '" . addslashes($updatedAddress->address) . "', '" . addslashes($updatedAddress->location) . "', 
+                      '" . addslashes($updatedAddress->country) . "', '$updatedAddress->fk_organization')";
+                if ($this->connection->query($sql)) {
+                    $message .= "New address « $updatedAddress->pk_formation » added \n";
+                } else {
+                    $message .= "Error while adding new address « $updatedAddress->address » \n";
+                }
             } else {
-                $message .= "Error while updating internal qualification_employee with fk internal qualification $updatedIntQualProcess->pk_internalQualificationsProcess and fk employee $updatedIntQualProcess->fk_employee \n";
+                //if address already exist (update)
+                $sql = "UPDATE address SET np = '$updatedAddress->np', 
+                          address = '" . addslashes($updatedAddress->address) . "', location = '" . addslashes($updatedAddress->location) . "', 
+                          country = '" . addslashes($updatedAddress->country) . "' WHERE pk_address = $updatedAddress->pk_address";
+                if ($this->connection->query($sql)) {
+                    $message .= "Address with pk $updatedAddress->pk_address updated \n";
+                } else {
+                    $message .= "Error while updating address with pk $updatedAddress->pk_address \n";
+                }
+            }
+        }
+        foreach ($oldAddresses as $oldAddress) {
+            $stillExist = false;
+            foreach ($addresses as $updatedAddress) {
+                //$message .= "updated pk" . $updatedAddress->pk_address . "\n" . "old pk " . $oldAddress["pk_address"] . "\n";
+                if ($updatedAddress->pk_address == $oldAddress["pk_address"]) {
+                    $stillExist = true;
+                }
+            }
+            if (!$stillExist) {
+                $sql = "DELETE FROM address WHERE pk_address = " . $oldAddress["pk_address"];
+                if ($this->connection->query($sql)) {
+                    $message .= "Address with pk " . $oldAddress["pk_address"] . " deleted \n";
+                } else {
+                    $message .= "Error while deleting address with pk " . $oldAddress["pk_address"] . "\n";
+                }
             }
         }
 
